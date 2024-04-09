@@ -1,0 +1,29 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  labels:
+    app: sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: webapp
+  template:
+    metadata:
+      labels:
+        app: sample-app
+        service: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: mkacrdemo01.azurecr.io/webapp:7e51abdefd3fd961f6bf652431ed73c0ac779b5a
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+            - name: WebApiBaseAddress
+              value: http://webapi
