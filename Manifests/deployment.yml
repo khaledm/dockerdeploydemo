@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: mkacrdemo01.azurecr.io/webapp:7e51abdefd3fd961f6bf652431ed73c0ac779b5a
+          image: mkacrdemo01.azurecr.io/webapp:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

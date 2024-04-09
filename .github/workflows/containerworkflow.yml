@@ -52,7 +52,7 @@ jobs:
     # Create image pull secret for ACR
         - uses: azure/k8s-create-secret@v1
           with:
-            container-registry: ${{ env.ACR_LOGON_SERVER }}
+            container-registry-url: ${{ env.ACR_LOGON_SERVER }}
             container-registry-username: ${{ secrets.SERVICE_PRINCIPAL_ID }}
             container-registry-password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
             secret-name: ${{ secrets.AKS_SECRET }}
